@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LALA Karaoke — Homepage</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0;background:#0B0A0E}
+*{box-sizing:border-box}
+a{color:#F5F0E8;text-decoration:none}
+a:hover{color:#FF4FA0}
+.wrap{max-width:1360px;margin:0 auto;padding-left:40px;padding-right:40px}
+.disp{font-family:'Big Shoulders Display',Impact,sans-serif;text-transform:uppercase;letter-spacing:-0.01em}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-style:italic;text-transform:none;letter-spacing:0}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .2s ease, background .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.ghost{border:1.5px solid rgba(245,240,232,.35);color:#F5F0E8}
+.ghost:hover{border-color:#F5F0E8;color:#F5F0E8}
+.navlink{font-size:14px;font-weight:600;letter-spacing:.02em;color:#F5F0E8;opacity:.86}
+.pill-img{display:inline-block;height:.74em;width:1.55em;border-radius:999px;object-fit:cover;vertical-align:-0.04em;margin:0 .12em}
+.marquee{display:flex;width:max-content;animation:scroll 38s linear infinite}
+.marquee-slow{display:flex;width:max-content;animation:scroll 60s linear infinite}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.outline{color:transparent;-webkit-text-stroke:1.5px rgba(245,240,232,.55)}
+.card-img{transition:transform .6s ease}
+.room:hover .card-img{transform:scale(1.06)}
+.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:300px;gap:16px}
+.span-r2{grid-row:span 2}
+.span-c2{grid-column:span 2}
+.occ{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border-bottom:1px solid rgba(245,240,232,.14);transition:padding .25s ease,color .25s ease}
+.occ:hover{padding-left:14px;color:#FF4FA0}
+.field{display:flex;flex-direction:column;gap:6px;flex:1 1 170px;min-width:0}
+.field label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.72)}
+.field select,.field input{height:48px;border-radius:12px;border:1px solid rgba(245,240,232,.18);background:#16141B;color:#F5F0E8;padding:0 14px;font:600 15px Manrope,sans-serif;width:100%}
+@media (max-width:1000px){.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.span-c2{grid-column:span 2}.hide-md{display:none}}
+@media (max-width:680px){.wrap{padding-left:20px;padding-right:20px}.bento{grid-template-columns:minmax(0,1fr);grid-auto-rows:280px}.span-c2{grid-column:span 1}.span-r2{grid-row:span 1}.hide-sm{display:none}}
+</style>
+</helmet>
+
+<div style="font-family: Manrope, system-ui, sans-serif; color: #F5F0E8; background: #0B0A0E; overflow: hidden">
+
+<!-- Announcement ticker -->
+<div style="background: {{accent}}; color: #0B0A0E; overflow: hidden; height: 40px; display: flex; align-items: center">
+<div class="marquee" style="font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; gap: 40px">
+<span>Happy Hour Mon–Fri · 4–6PM</span><span>✦</span><span>30% off karaoke rooms Mon–Thu</span><span>✦</span><span>Open Mic Nights at both locations</span><span>✦</span><span>Pre-order food &amp; drinks for your room</span><span>✦</span>
+<span>Happy Hour Mon–Fri · 4–6PM</span><span>✦</span><span>30% off karaoke rooms Mon–Thu</span><span>✦</span><span>Open Mic Nights at both locations</span><span>✦</span><span>Pre-order food &amp; drinks for your room</span><span>✦</span>
+</div>
+</div>
+
+<!-- Header -->
+<header class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 88px">
+<a href="#top" aria-label="LALA home" style="display: flex; align-items: center">
+<img src="./assets/25e888349b52ca06248871d7ff7878c4.png" alt="LALA St Pete – Tampa" style="height: 48px; width: auto; display: block">
+</a>
+<nav aria-label="Main" class="hide-md" style="display: flex; gap: 32px">
+<a class="navlink" href="#rooms">Karaoke Rooms</a>
+<a class="navlink" href="#menu">Menu</a>
+<a class="navlink" href="#parties">Parties &amp; Events</a>
+<a class="navlink" href="#specials">Specials</a>
+<a class="navlink" href="#locations">Locations</a>
+</nav>
+<div style="display: flex; gap: 10px; align-items: center">
+<a class="btn ghost hide-sm" href="#locations">Reserve a table</a>
+<a class="btn" href="#book" style="background: {{accent}}; color: #0B0A0E">Book a room
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</div>
+</header>
+
+<!-- Hero -->
+<section id="top" class="wrap" style="padding-top: 48px; padding-bottom: 56px">
+<div style="display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,240,232,.72); flex-wrap: wrap">
+<span style="width: 8px; height: 8px; border-radius: 99px; background: {{accent}}"></span>
+<span>St. Pete · Tampa</span><span style="opacity: .4">/</span><span>Restaurant · Bars · 15 Private Karaoke Rooms</span>
+</div>
+<h1 class="disp" style="margin: 28px 0 0; font-weight: 900; font-size: clamp(76px, 13.4vw, 212px); line-height: .84">
+<span style="display: block">Eat<img class="pill-img" src="./assets/3cfbbcced1e0d2d543120dfbbe89fdab.jpg" alt="Charcuterie board at LALA">well,</span>
+<span style="display: block"><img class="pill-img" src="./assets/691ebe9c76ecb42e061e4b6ce35b87dc.jpg" alt="Craft cocktails at LALA">drink up</span>
+<span style="display: block">&amp; <span style="color: {{accent}}">sing</span><img class="pill-img" src="./assets/0ff68c31e9bfa88834fff411b3290611.jpg" alt="Studio LALA karaoke room"><span class="serif" style="font-weight: 400; font-size: .62em">out loud.</span></span>
+</h1>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; margin-top: 44px">
+<p style="margin: 0; max-width: 520px; font-size: 19px; line-height: 1.55; color: rgba(245,240,232,.82)">Tampa Bay’s restaurant, cocktail bar and private karaoke rooms under one roof. Scratch-made French Mediterranean plates, craft cocktails, and 70,000+ songs waiting for your crew.</p>
+<div style="display: flex; gap: 40px; flex-wrap: wrap">
+<div><div class="disp" style="font-size: 56px; font-weight: 800; line-height: 1">15</div><div style="font-size: 13px; color: rgba(245,240,232,.72); margin-top: 6px">themed private rooms</div></div>
+<div><div class="disp" style="font-size: 56px; font-weight: 800; line-height: 1">70K+</div><div style="font-size: 13px; color: rgba(245,240,232,.72); margin-top: 6px">songs, many languages</div></div>
+<div><div class="disp" style="font-size: 56px; font-weight: 800; line-height: 1">5–25</div><div style="font-size: 13px; color: rgba(245,240,232,.72); margin-top: 6px">guests per room</div></div>
+</div>
+</div>
+</section>
+
+<!-- Image band + booking widget -->
+<section id="book" class="wrap" style="padding-bottom: 96px">
+<div style="position: relative; border-radius: 32px; overflow: hidden; min-height: 600px; display: flex; align-items: flex-end">
+<img src="./assets/7511738acc332ea6212844356fba4ad2.jpg" alt="Neon-lit private karaoke room at LALA St. Pete" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,10,14,0) 35%, rgba(11,10,14,.88) 100%)"></div>
+<div style="position: absolute; top: 24px; left: 24px; display: flex; gap: 8px; flex-wrap: wrap">
+<span style="background: rgba(11,10,14,.7); backdrop-filter: blur(10px); border-radius: 999px; padding: 10px 16px; font-size: 13px; font-weight: 700">Pro sound systems</span>
+<span style="background: rgba(11,10,14,.7); backdrop-filter: blur(10px); border-radius: 999px; padding: 10px 16px; font-size: 13px; font-weight: 700">Food &amp; drinks served to your room</span>
+<span style="background: rgba(11,10,14,.7); backdrop-filter: blur(10px); border-radius: 999px; padding: 10px 16px; font-size: 13px; font-weight: 700">Walk-ins welcome</span>
+</div>
+<form aria-label="Find a karaoke room" style="position: relative; margin: 24px; width: calc(100% - 48px); background: rgba(11,10,14,.82); backdrop-filter: blur(18px); border: 1px solid rgba(245,240,232,.12); border-radius: 24px; padding: 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end">
+<div style="flex: 1 1 100%; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px">
+<h2 class="disp" style="margin: 0; font-size: 34px; font-weight: 800">Plan your night</h2>
+<span style="font-size: 13px; color: rgba(245,240,232,.72)">Book Mon–Thu and save 30% on rooms</span>
+</div>
+<div class="field"><label for="b-loc">Location</label><select id="b-loc"><option>LALA St. Pete</option><option>LALA Tampa</option></select></div>
+<div class="field"><label for="b-date">Date</label><input id="b-date" type="date" value="2026-11-14"></div>
+<div class="field"><label for="b-guests">Guests</label><select id="b-guests"><option>2–5 guests</option><option>6–10 guests</option><option>11–18 guests</option><option>19–25 guests</option><option>26+ (event)</option></select></div>
+<div class="field"><label for="b-occ">Occasion</label><select id="b-occ"><option>Just because</option><option>Birthday</option><option>Bachelor / Bachelorette</option><option>Team night</option><option>Date night</option></select></div>
+<button type="button" class="btn" style="border: 0; cursor: pointer; background: {{accent}}; color: #0B0A0E; height: 48px; flex: 0 0 auto; font-family: Manrope, sans-serif">Find a room</button>
+</form>
+</div>
+</section>
+
+<!-- Occasions marquee -->
+<div style="border-top: 1px solid rgba(245,240,232,.12); border-bottom: 1px solid rgba(245,240,232,.12); padding: 26px 0; overflow: hidden">
+<div class="marquee-slow disp" style="font-weight: 900; font-size: 88px; line-height: 1; white-space: nowrap; gap: 48px; align-items: center">
+<span>Birthdays</span><span class="outline">Bachelorettes</span><span style="color: {{accent}}">✦</span><span>Team nights</span><span class="outline">Date night</span><span style="color: {{accent}}">✦</span><span>Rehearsal dinners</span><span class="outline">Open mic</span><span style="color: {{accent}}">✦</span>
+<span>Birthdays</span><span class="outline">Bachelorettes</span><span style="color: {{accent}}">✦</span><span>Team nights</span><span class="outline">Date night</span><span style="color: {{accent}}">✦</span><span>Rehearsal dinners</span><span class="outline">Open mic</span><span style="color: {{accent}}">✦</span>
+</div>
+</div>
+
+<!-- Bento: the LALA experience -->
+<section class="wrap" style="padding-top: 112px; padding-bottom: 112px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px">
+<h2 class="disp" style="margin: 0; font-size: clamp(52px, 7vw, 104px); font-weight: 900; line-height: .9">One address.<br><span class="serif" style="font-weight: 400; color: {{accent}}">every</span> kind of night.</h2>
+<p style="margin: 0; max-width: 380px; font-size: 17px; line-height: 1.6; color: rgba(245,240,232,.78)">Start with dinner, move to the rooftop bar, end in your own private room. Or do it the other way round.</p>
+</div>
+<div class="bento">
+<a href="#rooms" class="room span-r2" style="position: relative; border-radius: 28px; overflow: hidden; display: block">
+<img class="card-img" src="./assets/6bf6811c9c5de89c26dd39b7741a4e41.jpg" alt="Tropical karaoke room" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,10,14,0) 40%, rgba(11,10,14,.9) 100%)"></div>
+<div style="position: absolute; left: 28px; right: 28px; bottom: 28px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: {{accent}}">Private karaoke</span>
+<h3 class="disp" style="margin: 8px 0 8px; font-size: 48px; font-weight: 800; line-height: .95">15 rooms.<br>15 different worlds.</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: rgba(245,240,232,.85)">From a five-person glam booth to the 25-guest Moulin Rouge.</p>
+</div>
+</a>
+<a href="#menu" class="room" style="position: relative; border-radius: 28px; overflow: hidden; display: block">
+<img class="card-img" src="./assets/8e0f2a0c07911c36047ea2e0589ac25d.jpg" alt="Guests dining at LALA restaurant" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,10,14,0) 30%, rgba(11,10,14,.88) 100%)"></div>
+<div style="position: absolute; left: 24px; right: 24px; bottom: 24px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: {{accent}}">The restaurant</span>
+<h3 class="disp" style="margin: 6px 0 0; font-size: 34px; font-weight: 800; line-height: 1">French Med meets American craft</h3>
+</div>
+</a>
+<a href="#menu" class="room" style="position: relative; border-radius: 28px; overflow: hidden; display: block">
+<img class="card-img" src="./assets/691ebe9c76ecb42e061e4b6ce35b87dc.jpg" alt="Signature cocktails" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,10,14,0) 30%, rgba(11,10,14,.88) 100%)"></div>
+<div style="position: absolute; left: 24px; right: 24px; bottom: 24px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: {{accent}}">Bars &amp; rooftop</span>
+<h3 class="disp" style="margin: 6px 0 0; font-size: 34px; font-weight: 800; line-height: 1">Craft cocktails, open-air views</h3>
+</div>
+</a>
+<div style="border-radius: 28px; background: {{accent}}; color: #0B0A0E; padding: 28px; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: flex-start">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase">St. Pete only</span>
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"></path><path d="M12 12c0-4 3-7 7-7 0 4-3 7-7 7z"></path><path d="M12 15c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5z"></path></svg>
+</div>
+<div>
+<h3 class="disp" style="margin: 0 0 8px; font-size: 40px; font-weight: 900; line-height: .95">The Activity Garden</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; font-weight: 600">Cornhole, ping pong, pool and giant Jenga, plus movie nights on the lawn and live music.</p>
+</div>
+</div>
+<div style="border-radius: 28px; background: #17151C; border: 1px solid rgba(245,240,232,.1); padding: 28px; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: flex-start">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: {{accent}}">Weekly</span>
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10a7 7 0 0 0 14 0"></path><path d="M12 17v5M8 22h8"></path></svg>
+</div>
+<div>
+<h3 class="disp" style="margin: 0 0 8px; font-size: 40px; font-weight: 900; line-height: .95">Open Mic Night</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: rgba(245,240,232,.78)">Local talent on stage, the whole room singing back. Both locations.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Rooms -->
+<section id="rooms" style="background: #F5F0E8; color: #0B0A0E; padding: 112px 0">
+<div class="wrap">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 40px">
+<div>
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #0B0A0E; opacity: .6">Private karaoke rooms</span>
+<h2 class="disp" style="margin: 12px 0 0; font-size: clamp(52px, 7vw, 104px); font-weight: 900; line-height: .9">Pick your <span class="serif" style="font-weight: 400">stage.</span></h2>
+</div>
+<div role="tablist" aria-label="Filter rooms by location" style="display: flex; gap: 6px; background: #E7E0D5; border-radius: 999px; padding: 6px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+<button type="button" role="tab" aria-selected="{{t.sel}}" onClick="{{t.pick}}" style="border: 0; cursor: pointer; min-height: 44px; padding: 0 22px; border-radius: 999px; font: 700 14px Manrope, sans-serif; background: {{t.bg}}; color: {{t.fg}}">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px">
+<sc-for list="{{rooms}}" as="r" hint-placeholder-count="8">
+<a href="#book" class="room" style="display: block; color: #0B0A0E">
+<div style="position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3; background: #1a1820">
+<img class="card-img" src="{{r.img}}" alt="{{r.name}} karaoke room" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<span style="position: absolute; top: 14px; left: 14px; background: #F5F0E8; color: #0B0A0E; border-radius: 999px; padding: 6px 12px; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase">{{r.loc}}</span>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 14px">
+<h3 class="disp" style="margin: 0; font-size: 30px; font-weight: 800; line-height: 1">{{r.name}}</h3>
+<span style="font-size: 13px; font-weight: 700; white-space: nowrap">Up to {{r.cap}}</span>
+</div>
+<p style="margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #4A4650">{{r.desc}}</p>
+</a>
+</sc-for>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 48px">
+<a class="btn" href="#book" style="background: #0B0A0E; color: #F5F0E8">Check room availability
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Specials -->
+<section id="specials" class="wrap" style="padding-top: 112px; padding-bottom: 112px">
+<h2 class="disp" style="margin: 0 0 48px; font-size: clamp(52px, 7vw, 104px); font-weight: 900; line-height: .9">This week <span class="serif" style="font-weight: 400; color: {{accent}}">at</span> LALA</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<div style="border-radius: 24px; background: {{accent}}; color: #0B0A0E; padding: 28px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase">Mon–Fri · 4–6PM</span>
+<div><div class="disp" style="font-size: 54px; font-weight: 900; line-height: .9">Happy Hour</div><p style="margin: 10px 0 0; font-size: 15px; font-weight: 600">Sing, sip, save.</p></div>
+</div>
+<div style="border-radius: 24px; background: #17151C; border: 1px solid rgba(245,240,232,.1); padding: 28px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: {{accent}}">Mon–Thu</span>
+<div><div class="disp" style="font-size: 54px; font-weight: 900; line-height: .9">30% off rooms</div><p style="margin: 10px 0 0; font-size: 15px; color: rgba(245,240,232,.78)">Midweek karaoke, weekend energy.</p></div>
+</div>
+<div style="border-radius: 24px; background: #17151C; border: 1px solid rgba(245,240,232,.1); padding: 28px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: {{accent}}">Fri &amp; Sat</span>
+<div><div class="disp" style="font-size: 54px; font-weight: 900; line-height: .9">Late-night menu</div><p style="margin: 10px 0 0; font-size: 15px; color: rgba(245,240,232,.78)">Kitchen open until 2AM.</p></div>
+</div>
+<div style="border-radius: 24px; background: #F5F0E8; color: #0B0A0E; padding: 28px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase">Booked a room?</span>
+<div><div class="disp" style="font-size: 54px; font-weight: 900; line-height: .9">Pre-order</div><p style="margin: 10px 0 0; font-size: 15px; font-weight: 600">Food and drinks waiting when you walk in.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Parties & events -->
+<section id="parties" style="background: #141218; padding: 112px 0">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
+<div style="flex: 1 1 460px; min-width: 0">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: {{accent}}">Groups &amp; parties</span>
+<h2 class="disp" style="margin: 12px 0 32px; font-size: clamp(52px, 6.4vw, 96px); font-weight: 900; line-height: .9">Throw the party they’ll <span class="serif" style="font-weight: 400">still</span> talk about.</h2>
+<nav aria-label="Party types">
+<a class="occ" href="#parties"><span class="disp" style="font-size: 38px; font-weight: 800">Birthdays</span><span style="font-size: 13px; opacity: .7">Milestones &amp; surprises</span></a>
+<a class="occ" href="#parties"><span class="disp" style="font-size: 38px; font-weight: 800">Bachelor &amp; Bachelorette</span><span style="font-size: 13px; opacity: .7">The last big night</span></a>
+<a class="occ" href="#parties"><span class="disp" style="font-size: 38px; font-weight: 800">Corporate &amp; team nights</span><span style="font-size: 13px; opacity: .7">Team-building that works</span></a>
+<a class="occ" href="#parties"><span class="disp" style="font-size: 38px; font-weight: 800">Rehearsal dinners</span><span style="font-size: 13px; opacity: .7">Dinner, then duets</span></a>
+<a class="occ" href="#parties"><span class="disp" style="font-size: 38px; font-weight: 800">Private buyouts</span><span style="font-size: 13px; opacity: .7">The whole floor is yours</span></a>
+</nav>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="border-radius: 28px; overflow: hidden; aspect-ratio: 5 / 4">
+<img src="./assets/35cad124e7ecc207f5f2ca89c241b09a.jpg" alt="Rock and Red karaoke room ready for a party" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="background: #1E1B24; border-radius: 18px; padding: 20px"><div class="disp" style="font-size: 36px; font-weight: 800; color: {{accent}}">5–25</div><div style="font-size: 14px; margin-top: 4px">One private room</div></div>
+<div style="background: #1E1B24; border-radius: 18px; padding: 20px"><div class="disp" style="font-size: 36px; font-weight: 800; color: {{accent}}">4 rooms</div><div style="font-size: 14px; margin-top: 4px">Full top floor + bar</div></div>
+<div style="background: #1E1B24; border-radius: 18px; padding: 20px"><div class="disp" style="font-size: 36px; font-weight: 800; color: {{accent}}">120</div><div style="font-size: 14px; margin-top: 4px">Upstairs bar area</div></div>
+<div style="background: #1E1B24; border-radius: 18px; padding: 20px"><div class="disp" style="font-size: 36px; font-weight: 800; color: {{accent}}">Custom</div><div style="font-size: 14px; margin-top: 4px">Food &amp; drink packages</div></div>
+</div>
+<a class="btn" href="#locations" style="background: {{accent}}; color: #0B0A0E; justify-content: center">Plan your event
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Menu -->
+<section id="menu" class="wrap" style="padding-top: 112px; padding-bottom: 112px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 520px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<div style="border-radius: 28px; overflow: hidden; aspect-ratio: 3 / 4"><img src="./assets/3cfbbcced1e0d2d543120dfbbe89fdab.jpg" alt="Charcuterie and wine" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding-top: 56px">
+<div style="border-radius: 28px; overflow: hidden; aspect-ratio: 1 / 1"><img src="./assets/691ebe9c76ecb42e061e4b6ce35b87dc.jpg" alt="LALA cocktails" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="border-radius: 28px; background: #F5F0E8; color: #0B0A0E; padding: 22px"><div class="disp" style="font-size: 30px; font-weight: 800; line-height: 1">Brunch → Late night</div><div style="font-size: 13px; margin-top: 6px; font-weight: 600">Served every day</div></div>
+</div>
+</div>
+<div style="flex: 1 1 400px; min-width: 0">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: {{accent}}">Food &amp; drink</span>
+<h2 class="disp" style="margin: 12px 0 20px; font-size: clamp(52px, 6.4vw, 96px); font-weight: 900; line-height: .9">Made from scratch. <span class="serif" style="font-weight: 400">Served</span> till late.</h2>
+<p style="margin: 0 0 28px; font-size: 18px; line-height: 1.6; color: rgba(245,240,232,.8)">French Mediterranean flavours meet American classics, cooked with local premium ingredients. Champagne, wine, spirits and Grand Central Brewhouse beer on tap at St. Pete.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px">
+<span style="border: 1px solid rgba(245,240,232,.25); border-radius: 999px; padding: 8px 16px; font-size: 14px; font-weight: 600">Brunch</span>
+<span style="border: 1px solid rgba(245,240,232,.25); border-radius: 999px; padding: 8px 16px; font-size: 14px; font-weight: 600">Lunch</span>
+<span style="border: 1px solid rgba(245,240,232,.25); border-radius: 999px; padding: 8px 16px; font-size: 14px; font-weight: 600">Dinner</span>
+<span style="border: 1px solid rgba(245,240,232,.25); border-radius: 999px; padding: 8px 16px; font-size: 14px; font-weight: 600">Late night</span>
+<span style="border: 1px solid rgba(245,240,232,.25); border-radius: 999px; padding: 8px 16px; font-size: 14px; font-weight: 600">Craft cocktails</span>
+</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<a class="btn" href="#menu" style="background: {{accent}}; color: #0B0A0E">View menus</a>
+<a class="btn ghost" href="#menu">Pre-order for your room</a>
+</div>
+</div>
+</section>
+
+<!-- Locations -->
+<section id="locations" class="wrap" style="padding-bottom: 112px">
+<h2 class="disp" style="margin: 0 0 40px; font-size: clamp(52px, 7vw, 104px); font-weight: 900; line-height: .9">Two cities. <span class="serif" style="font-weight: 400; color: {{accent}}">Same</span> encore.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px">
+<article style="border-radius: 28px; background: #17151C; border: 1px solid rgba(245,240,232,.1); overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 260px; overflow: hidden"><img src="./assets/8ee72c23c70274cd585413578b32c341.jpg" alt="LALA St. Pete private room" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="padding: 32px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+<h3 class="disp" style="margin: 0; font-size: 52px; font-weight: 900; line-height: .9">St. Pete</h3>
+<span style="font-size: 13px; color: rgba(245,240,232,.72)">Grand Central District</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; font-size: 15px; line-height: 1.6">
+<div><div style="font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.62); margin-bottom: 6px">Address</div>2324 Central Ave<br>St. Petersburg, FL 33712<br><a href="#locations" style="color: {{accent}}">(727) 329-9455</a></div>
+<div><div style="font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.62); margin-bottom: 6px">Hours</div>Sun–Thu 11AM–12AM<br>Fri–Sat 11AM–2AM</div>
+</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<a class="btn" href="#book" style="background: {{accent}}; color: #0B0A0E">Book a room</a>
+<a class="btn ghost" href="#locations">Reserve a table</a>
+<a class="btn ghost" href="#locations">Directions</a>
+</div>
+</div>
+</article>
+<article style="border-radius: 28px; background: #17151C; border: 1px solid rgba(245,240,232,.1); overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 260px; overflow: hidden"><img src="./assets/566baeed41aa6e1c4c08d4cd6128bdee.jpg" alt="Moulin Rouge room at LALA Tampa" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="padding: 32px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+<h3 class="disp" style="margin: 0; font-size: 52px; font-weight: 900; line-height: .9">Tampa</h3>
+<span style="font-size: 13px; color: rgba(245,240,232,.72)">SoHo, near Hyde Park</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; font-size: 15px; line-height: 1.6">
+<div><div style="font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.62); margin-bottom: 6px">Address</div>208 South Howard Ave<br>Tampa, FL 33606<br><a href="#locations" style="color: {{accent}}">(813) 253-3578</a></div>
+<div><div style="font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.62); margin-bottom: 6px">Hours</div>Mon–Wed 4PM–12AM<br>Thu–Fri 4PM–3AM<br>Sat 11AM–3AM<br>Sun 11AM–12AM</div>
+</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<a class="btn" href="#book" style="background: {{accent}}; color: #0B0A0E">Book a room</a>
+<a class="btn ghost" href="#locations">Reserve a table</a>
+<a class="btn ghost" href="#locations">Directions</a>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<!-- Instagram strip -->
+<section style="padding-bottom: 112px">
+<div class="wrap" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 28px">
+<h2 class="disp" style="margin: 0; font-size: 56px; font-weight: 900; line-height: .9">Seen at LALA</h2>
+<a href="#top" style="font-weight: 700; color: {{accent}}">@lalastpete on Instagram →</a>
+</div>
+<div style="overflow: hidden">
+<div class="marquee-slow" style="gap: 16px">
+<img src="./assets/b802cc9940176ba8a4ca4e1ef6117ac9.jpg" alt="Glams room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/8e0f2a0c07911c36047ea2e0589ac25d.jpg" alt="Dining room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/552461489a9ef3ea41962ab05dc7c557.jpg" alt="Studio 54 room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/3cfbbcced1e0d2d543120dfbbe89fdab.jpg" alt="Charcuterie board" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/cc51059346e7300561bef04072e33312.jpg" alt="Hip Hop room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/691ebe9c76ecb42e061e4b6ce35b87dc.jpg" alt="Cocktails" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/cbbbbb246a8ba311f74cdd1adf09bb84.jpg" alt="Gatsby room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/b802cc9940176ba8a4ca4e1ef6117ac9.jpg" alt="Glams room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/8e0f2a0c07911c36047ea2e0589ac25d.jpg" alt="Dining room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/552461489a9ef3ea41962ab05dc7c557.jpg" alt="Studio 54 room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/3cfbbcced1e0d2d543120dfbbe89fdab.jpg" alt="Charcuterie board" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/cc51059346e7300561bef04072e33312.jpg" alt="Hip Hop room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/691ebe9c76ecb42e061e4b6ce35b87dc.jpg" alt="Cocktails" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+<img src="./assets/cbbbbb246a8ba311f74cdd1adf09bb84.jpg" alt="Gatsby room" style="width: 300px; height: 360px; object-fit: cover; border-radius: 22px">
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer style="background: {{accent}}; color: #0B0A0E; padding: 80px 0 32px; border-radius: 40px 40px 0 0">
+<div class="wrap">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px">
+<form aria-label="Newsletter" style="flex: 1 1 420px; min-width: 0">
+<h2 class="disp" style="margin: 0 0 12px; font-size: 56px; font-weight: 900; line-height: .9">Get on the list.</h2>
+<p style="margin: 0 0 20px; font-size: 16px; font-weight: 600">Specials, open mic dates and new room drops. No spam, just the good stuff.</p>
+<label for="nl-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; max-width: 520px">
+<input id="nl-email" type="email" placeholder="you@email.com" style="flex: 1 1 240px; min-width: 0; height: 52px; border-radius: 999px; border: 2px solid #0B0A0E; background: transparent; padding: 0 20px; font: 600 15px Manrope, sans-serif; color: #0B0A0E">
+<button type="button" style="height: 52px; padding: 0 26px; border-radius: 999px; border: 0; background: #0B0A0E; color: #F5F0E8; font: 700 15px Manrope, sans-serif; cursor: pointer">Subscribe</button>
+</div>
+</form>
+<div style="display: flex; gap: 56px; flex-wrap: wrap; font-size: 15px; font-weight: 600; line-height: 2">
+<nav aria-label="Explore"><div style="font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; opacity: .7; margin-bottom: 8px">Explore</div><a href="#rooms" style="color: #0B0A0E; display: block">Karaoke Rooms</a><a href="#menu" style="color: #0B0A0E; display: block">Menu</a><a href="#specials" style="color: #0B0A0E; display: block">Specials</a><a href="#parties" style="color: #0B0A0E; display: block">Groups &amp; Parties</a></nav>
+<nav aria-label="About"><div style="font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; opacity: .7; margin-bottom: 8px">LALA</div><a href="#top" style="color: #0B0A0E; display: block">Our Concept</a><a href="#top" style="color: #0B0A0E; display: block">Corporate Events</a><a href="#top" style="color: #0B0A0E; display: block">FAQs</a><a href="#top" style="color: #0B0A0E; display: block">Contact</a></nav>
+<nav aria-label="Social"><div style="font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; opacity: .7; margin-bottom: 8px">Follow</div><a href="#top" style="color: #0B0A0E; display: block">Instagram</a><a href="#top" style="color: #0B0A0E; display: block">Facebook</a><a href="#top" style="color: #0B0A0E; display: block">Leave a review</a></nav>
+</div>
+</div>
+<div class="disp" aria-hidden="true" style="font-size: clamp(120px, 27vw, 400px); font-weight: 900; line-height: .8; margin-top: 64px; letter-spacing: -0.02em">LALA</div>
+<div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1.5px solid rgba(11,10,14,.25); padding-top: 20px; margin-top: 24px; font-size: 13px; font-weight: 600">
+<span>© 2026 LALA St. Pete · Tampa. Eat, drink, sing.</span>
+<span><a href="#top" style="color: #0B0A0E">Privacy Policy</a> · <a href="#top" style="color: #0B0A0E">Accessibility</a> · <a href="#top" style="color: #0B0A0E">Sitemap</a></span>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF4FA0","options":["#FF4FA0","#C6FF3D","#FFB23F","#7C6CFF"]},"roomFilter":{"editor":"enum","options":["All","St. Pete","Tampa"],"default":"All"},"$preview":{"width":1440,"height":7200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { filter: null };
+  }
+  renderVals() {
+    var accent = this.props.accent ?? '#FF4FA0';
+    var filter = this.state.filter || this.props.roomFilter || 'All';
+    var B = '/_blob/';
+    var all = [
+      { name: 'Studio LALA', loc: 'St. Pete', cap: 14, desc: 'Disco sparkle, holographic walls, pure 70s flair.', img: B + '0ff68c31e9bfa88834fff411b3290611' },
+      { name: 'Moulin Rouge', loc: 'Tampa', cap: 25, desc: 'Our biggest stage, straight from a Parisian cabaret.', img: B + '566baeed41aa6e1c4c08d4cd6128bdee' },
+      { name: 'Tropical', loc: 'St. Pete', cap: 18, desc: 'Island walls and greenery. St. Pete’s largest room.', img: B + '6bf6811c9c5de89c26dd39b7741a4e41' },
+      { name: 'Studio 54', loc: 'Tampa', cap: 14, desc: 'Disco-era glam inspired by the legendary NYC club.', img: B + '552461489a9ef3ea41962ab05dc7c557' },
+      { name: 'Glams', loc: 'St. Pete', cap: 5, desc: 'Glossy black ceiling, mirrors and red booths.', img: B + 'b802cc9940176ba8a4ca4e1ef6117ac9' },
+      { name: 'Gatsby', loc: 'Tampa', cap: 12, desc: 'Roaring-twenties opulence, gold on gold.', img: B + 'cbbbbb246a8ba311f74cdd1adf09bb84' },
+      { name: 'Rock and Red', loc: 'St. Pete', cap: 14, desc: 'Grunge artist room with bulb-lit mirrors.', img: B + '35cad124e7ecc207f5f2ca89c241b09a' },
+      { name: 'Hip Hop', loc: 'Tampa', cap: 8, desc: 'Graffiti, bold color and big urban energy.', img: B + 'cc51059346e7300561bef04072e33312' },
+      { name: 'Speakeasy', loc: 'St. Pete', cap: 12, desc: 'Prohibition-era hideaway. No windows, no rules.', img: B + '9db4567daf4fa7b8ccf6e11bc4eb0b24' },
+      { name: 'Red Carpet', loc: 'Tampa', cap: 12, desc: 'Film-premiere glamour for your big entrance.', img: B + '03f34909c0b36af809f9d43c87109a8d' },
+      { name: 'Grammys', loc: 'St. Pete', cap: 10, desc: 'Red carpet, black, white and gold. Award-worthy.', img: B + 'ba39bb5724999739fc2226fa4da33768' },
+      { name: 'Backstage', loc: 'Tampa', cap: 8, desc: 'Feel like the headliner before the show.', img: B + '83c6dfebe6130917ce44ef3e0b7e4783' },
+      { name: 'Recording Studio', loc: 'St. Pete', cap: 8, desc: 'Soundproofed, foam-lined, studio-grade vibes.', img: B + '564d6f77b0e2a247bc6a415f00f948b6' },
+      { name: 'Nashville', loc: 'Tampa', cap: 10, desc: 'Southern charm for country and bluegrass nights.', img: B + '54d75512c0869259bce8e33f969e9074' },
+      { name: 'Reggae', loc: 'Tampa', cap: 6, desc: 'Small, laid-back and full of good vibes.', img: B + '0eb7aa6ea2cffbe4227874b635a9d93a' }
+    ];
+    var rooms = filter === 'All' ? all.slice(0, 8) : all.filter(function (r) { return r.loc === filter; });
+    var self = this;
+    var tabs = ['All', 'St. Pete', 'Tampa'].map(function (t) {
+      var sel = t === filter;
+      return {
+        label: t === 'All' ? 'All rooms' : t,
+        sel: sel ? 'true' : 'false',
+        bg: sel ? '#0B0A0E' : 'transparent',
+        fg: sel ? '#F5F0E8' : '#0B0A0E',
+        pick: function () { self.setState({ filter: t }); }
+      };
+    });
+    return { accent: accent, rooms: rooms, tabs: tabs };
+  }
+}
+</script>
+</body>
+</html>
